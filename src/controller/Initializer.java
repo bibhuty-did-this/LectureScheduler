@@ -355,9 +355,6 @@ public class Initializer{
 		Cell r01_c04=r01.createCell(3);
 		r01_c04.setCellValue("No of groups");
 
-		Cell r01_c05=r01.createCell(4);
-		r01_c05.setCellValue("Id of the teacher assigned");
-
 		CellStyle style=workbook.createCellStyle();
 		style.setFillForegroundColor(IndexedColors.BLACK.getIndex());
 		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -374,14 +371,12 @@ public class Initializer{
 		r01_c02.setCellStyle(style);
 		r01_c03.setCellStyle(style);
 		r01_c04.setCellStyle(style);
-		r01_c05.setCellStyle(style);
 
 		details.setColumnWidth(0,7000);
 		details.setColumnWidth(1,7000);
 		details.setColumnWidth(2,7000);
 		details.setColumnWidth(3,7000);
 		details.setColumnWidth(4,7000);
-		details.setColumnWidth(5,7000);
 
 		String instructionValue="Please enter the lab details";
 		Cell instruction=instructionCell(workbook,details,instructionValue);
@@ -414,12 +409,6 @@ public class Initializer{
 		Cell r01_c03=r01.createCell(2);
 		r01_c03.setCellValue("Combined(Y/N)");
 
-		Cell r01_c04=r01.createCell(3);
-		r01_c04.setCellValue("No of students");
-
-		Cell r01_c05=r01.createCell(4);
-		r01_c05.setCellValue("Id of the teacher assigned");
-
 		CellStyle style=workbook.createCellStyle();
 		style.setFillForegroundColor(IndexedColors.BLACK.getIndex());
 		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -435,15 +424,11 @@ public class Initializer{
 		r01_c01.setCellStyle(style);
 		r01_c02.setCellStyle(style);
 		r01_c03.setCellStyle(style);
-		r01_c04.setCellStyle(style);
-		r01_c05.setCellStyle(style);
 
 		details.setColumnWidth(0,7000);
 		details.setColumnWidth(1,7000);
 		details.setColumnWidth(2,7000);
 		details.setColumnWidth(3,7000);
-		details.setColumnWidth(4,7000);
-		details.setColumnWidth(5,7000);
 
 		String instructionValue="Please enter the lab details";
 		Cell instruction=instructionCell(workbook,details,instructionValue);
@@ -508,11 +493,11 @@ public class Initializer{
 	}
 
 	void openExcelFile(String path){
-		try {
+		/*try {
 			Desktop.getDesktop().open(new File(path));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	Cell instructionCell(Workbook workbook,Sheet sheet,String instructionValue){
 		Cell instruction=sheet.createRow(0).createCell(0);
