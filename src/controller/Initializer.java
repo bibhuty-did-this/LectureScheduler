@@ -3,6 +3,7 @@ package controller;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
@@ -74,7 +75,7 @@ public class Initializer{
 
 		r01_c01.setCellStyle(style);
 
-		nameOfTheDepartment.setColumnWidth(0,7000);
+		nameOfTheDepartment.setColumnWidth(0,9000);
 		nameOfTheDepartment.setColumnWidth(1,20000);
 
 		String instructionValue="Please edit the name of your department, if necessary";
@@ -118,7 +119,7 @@ public class Initializer{
 
 		r01_c01.setCellStyle(style);
 		r01_c02.setCellStyle(style);
-		nameOfTheCourses.setColumnWidth(0,7000);
+		nameOfTheCourses.setColumnWidth(0,9000);
 		nameOfTheCourses.setColumnWidth(1,20000);
 
 
@@ -172,7 +173,7 @@ public class Initializer{
 		r01_c01.setCellStyle(style);
 		r01_c02.setCellStyle(style);
 		r01_c03.setCellStyle(style);
-		facultyDetails.setColumnWidth(0,7000);
+		facultyDetails.setColumnWidth(0,9000);
 		facultyDetails.setColumnWidth(1,20000);
 		facultyDetails.setColumnWidth(2,20000);
 
@@ -223,7 +224,7 @@ public class Initializer{
 
 		r01_c01.setCellStyle(style);
 		r01_c02.setCellStyle(style);
-		facultyDetails.setColumnWidth(0,7000);
+		facultyDetails.setColumnWidth(0,9000);
 		facultyDetails.setColumnWidth(1,20000);
 
 		String instructionValue="Please enter the data according to the examples.";
@@ -271,7 +272,7 @@ public class Initializer{
 
 		r01_c01.setCellStyle(style);
 		r01_c02.setCellStyle(style);
-		facultyDetails.setColumnWidth(0,7000);
+		facultyDetails.setColumnWidth(0,9000);
 		facultyDetails.setColumnWidth(1,20000);
 
 		String instructionValue="Please enter the data according to the examples.";
@@ -304,6 +305,7 @@ public class Initializer{
 		Cell r01_c01=r01.createCell(0);
 		r01_c01.setCellValue("No of sections");
 		Cell r01_c02=r01.createCell(1);
+		r01_c02.setCellType(CellType.NUMERIC);
 		r01_c02.setCellValue(2);
 
 		CellStyle style=workbook.createCellStyle();
@@ -319,7 +321,7 @@ public class Initializer{
 		style.setFont(font);
 
 		r01_c01.setCellStyle(style);
-		details.setColumnWidth(0,7000);
+		details.setColumnWidth(0,9000);
 
 		String instructionValue="Please enter the section details\n(by default no of sections is taken as 2)";
 		Cell instruction=instructionCell(workbook,details,instructionValue);
@@ -372,11 +374,11 @@ public class Initializer{
 		r01_c03.setCellStyle(style);
 		r01_c04.setCellStyle(style);
 
-		details.setColumnWidth(0,7000);
-		details.setColumnWidth(1,7000);
-		details.setColumnWidth(2,7000);
-		details.setColumnWidth(3,7000);
-		details.setColumnWidth(4,7000);
+		details.setColumnWidth(0,9000);
+		details.setColumnWidth(1,9000);
+		details.setColumnWidth(2,9000);
+		details.setColumnWidth(3,9000);
+		details.setColumnWidth(4,9000);
 
 		String instructionValue="Please enter the lab details";
 		Cell instruction=instructionCell(workbook,details,instructionValue);
@@ -409,6 +411,9 @@ public class Initializer{
 		Cell r01_c03=r01.createCell(2);
 		r01_c03.setCellValue("Combined(Y/N)");
 
+		Cell r01_c04=r01.createCell(3);
+		r01_c04.setCellValue("Credits");
+
 		CellStyle style=workbook.createCellStyle();
 		style.setFillForegroundColor(IndexedColors.BLACK.getIndex());
 		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -424,11 +429,12 @@ public class Initializer{
 		r01_c01.setCellStyle(style);
 		r01_c02.setCellStyle(style);
 		r01_c03.setCellStyle(style);
+		r01_c04.setCellStyle(style);
 
-		details.setColumnWidth(0,7000);
-		details.setColumnWidth(1,7000);
-		details.setColumnWidth(2,7000);
-		details.setColumnWidth(3,7000);
+		details.setColumnWidth(0,9000);
+		details.setColumnWidth(1,9000);
+		details.setColumnWidth(2,9000);
+		details.setColumnWidth(3,9000);
 
 		String instructionValue="Please enter the lab details";
 		Cell instruction=instructionCell(workbook,details,instructionValue);
@@ -473,7 +479,7 @@ public class Initializer{
 	public boolean fileExists(String path){
 		File file=new File(path);
 		if(file.exists()){
-			System.out.println(path+ " already exists");
+			//System.out.println(path+ " already exists");
 			return true;
 		}
 		return false;
@@ -481,7 +487,7 @@ public class Initializer{
 
 	void createDirectory(String path){
 
-		File directory=new File(path);
+	/*	File directory=new File(path);
 		if(!directory.exists() && !directory.isDirectory()){
 			boolean successful=directory.mkdirs();
 			if(successful)
@@ -490,6 +496,7 @@ public class Initializer{
 				System.out.println("Failed to create a directory");
 		}else
 			System.out.println(path+" already exists");
+	*/
 	}
 
 	void openExcelFile(String path){
@@ -498,7 +505,7 @@ public class Initializer{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}*/
-	}
+}
 	Cell instructionCell(Workbook workbook,Sheet sheet,String instructionValue){
 		Cell instruction=sheet.createRow(0).createCell(0);
 		instruction.setCellValue(instructionValue);
